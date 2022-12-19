@@ -41,4 +41,5 @@ NFT는 블록체인에서 거래 및 교환이 가능한 고유 토큰인 Non Fu
 ### 웹서비스 데모 영상
 플레이 모양의 버튼을 클릭하면 DCGAN을 통해서 학습시킨 Cryptopunks Generator 모델이 담긴 서버를 호출하여 랜덤하게 이미지를 생성하고 리턴한다.
 리턴받은 이미지를 웹에 표시한다. NFT의 특성을 살려 갤러리 형태로 차곡차곡 쌓이도록 설계했다. 좋아요와 깃허브 연결 기능도 구현 완료이다.
+
 ![DEMO](https://raw.githubusercontent.com/ika9810/CryptoPunks-with-DCGAN/main/img/demo.gif)
