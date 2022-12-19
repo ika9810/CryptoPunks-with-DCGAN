@@ -40,7 +40,8 @@
                 <use xlink:href="#icon-next"></use>
               </svg>
             </div>
-            <div class="player-controls__item -xl js-play" @click="play">
+            <!-- <div class="player-controls__item -xl js-play" @click="play"> -->
+            <div class="player-controls__item -xl js-play" @click="getData">
               <svg class="icon">
                 <use xlink:href="#icon-pause" v-if="isTimerPlaying"></use>
                 <use xlink:href="#icon-play" v-else></use>
@@ -63,7 +64,7 @@
         </div>
         <div v-cloak></div>
       </div>
-      <a href="https://github.com/muhammederdem/mini-player" target="_blank" class="github-btn">
+      <a href="https://github.com/ika9810/CryptoPunks-with-DCGAN" target="_blank" class="github-btn">
         See on GitHub
       </a>
     </div>
@@ -120,8 +121,16 @@
     </svg>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
-<script>
-  console.log("hi");
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script>
+    function test(){
+      //background-image 가지고 오기
+      var getting = $(".player-cover__item").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+      console.log(getting);
+      const fileName = "DCGAN-Cryptopunks.png"
+      downloadImage(getting, fileName);
+    }
+  </script>
 </body>
 </html>

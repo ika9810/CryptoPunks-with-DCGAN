@@ -4,7 +4,6 @@ design: https://dribbble.com/shots/3533847-Mini-Music-Player
 I can't find any open music api or mp3 api so i have to download all musics as mp3 file.
 You can fork on github: https://github.com/muhammederdem/mini-player
 */
-console.log("sex");
 new Vue({
   el: "#app",
   data() {
@@ -17,77 +16,13 @@ new Vue({
       isTimerPlaying: false,
       tracks: [
         {
-          name: "Mekanın Sahibi",
-          artist: "Norm Ender",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg",
+          name: "Cryptopunks Generator",
+          artist: "Click Button to generate!",
+          cover: "img/7523.png",
           source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
-          url: "https://www.youtube.com/watch?v=z3wAjJXbYzA",
-          favorited: false
-        },
-        {
-          name: "Everybody Knows",
-          artist: "Leonard Cohen",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
-          url: "https://www.youtube.com/watch?v=Lin-a2lTelg",
+          url: "https://opensea.io/assets/ethereum/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/7523",
           favorited: true
         },
-        {
-          name: "Extreme Ways",
-          artist: "Moby",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3",
-          url: "https://www.youtube.com/watch?v=ICjyAe9S54c",
-          favorited: false
-        },
-        {
-          name: "Butterflies",
-          artist: "Sia",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3",
-          url: "https://www.youtube.com/watch?v=kYgGwWYOd9Y",
-          favorited: false
-        },
-        {
-          name: "The Final Victory",
-          artist: "Haggard",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3",
-          url: "https://www.youtube.com/watch?v=0WlpALnQdN8",
-          favorited: true
-        },
-        {
-          name: "Genius ft. Sia, Diplo, Labrinth",
-          artist: "LSD",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3",
-          url: "https://www.youtube.com/watch?v=HhoATZ1Imtw",
-          favorited: false
-        },
-        {
-          name: "The Comeback Kid",
-          artist: "Lindi Ortega",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3",
-          url: "https://www.youtube.com/watch?v=me6aoX0wCV8",
-          favorited: true
-        },
-        {
-          name: "Overdose",
-          artist: "Grandson",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3",
-          url: "https://www.youtube.com/watch?v=00-Rl3Jlx-o",
-          favorited: false
-        },
-        {
-          name: "Rag'n'Bone Man",
-          artist: "Human",
-          cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg",
-          source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3",
-          url: "https://www.youtube.com/watch?v=L3wKzyIN1yk",
-          favorited: false
-        }
       ],
       currentTrack: null,
       currentTrackIndex: 0,
@@ -95,6 +30,40 @@ new Vue({
     };
   },
   methods: {
+    getData() {
+      axios
+        .get("https://fastapi-production-4f48.up.railway.app/")
+        .then((res) => {
+          console.log(res.staus);
+          console.log(res.data);
+          let test = {
+            name: "Cryptopunks",
+            artist: "JONGHEON LEE",
+            //cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
+            cover: "data:image/png;base64," + res.data["message"],
+            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
+            url: "https://github.com/ika9810/CryptoPunks-with-DCGAN",
+            favorited: false
+          }
+          this.tracks.push(test);
+          //next
+          this.transitionName = "scale-out";
+          this.isShowCover = false;
+          if (this.currentTrackIndex < this.tracks.length - 1) {
+            this.currentTrackIndex++;
+          } else {
+            this.currentTrackIndex = 0;
+          }
+          this.currentTrack = this.tracks[this.currentTrackIndex];
+          this.resetPlayer();
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("항상 마지막에 실행");
+        });
+    },
     play() {
       if (this.audio.paused) {
         this.audio.play();
@@ -107,8 +76,8 @@ new Vue({
       let test = {
         name: "Sexing",
         artist: "Norm Ender",
-        cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
-        // cover: "./img/favicon.png",
+        //cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
+        cover: "./img/favicon.png",
         source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
         url: "https://www.youtube.com/watch?v=z3wAjJXbYzA",
         favorited: true
