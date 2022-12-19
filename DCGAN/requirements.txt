@@ -1,0 +1,11 @@
+torch
+wheel
+matplotlib
+numpy==1.21.6
+Pillow
+pandas
+seaborn
+tqdm
+opencv-python
+ipython
+torchvision

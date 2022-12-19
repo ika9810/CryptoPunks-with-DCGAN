@@ -20,6 +20,14 @@
 
 Background : [Cryptopunk](https://www.larvalabs.com/cryptopunks), [NFT](https://ko.wikipedia.org/wiki/%EB%8C%80%EC%B2%B4_%EB%B6%88%EA%B0%80%EB%8A%A5_%ED%86%A0%ED%81%B0)
 
+Stack : AI(DCGAN, Pytorch) Front(Vue), Back(Fastapi), Infra(Github Pages, Railway)
+
+Developer : AI(이종헌), Front(이종헌), Back(이종헌), Infra(이종헌)
+
+### 사용 데이터셋
+
+[Kaggle Link](https://www.kaggle.com/datasets/tunguz/cryptopunks)
+
 ## 개요
 
 ### NFT란?
@@ -38,8 +46,10 @@ NFT는 블록체인에서 거래 및 교환이 가능한 고유 토큰인 Non Fu
 
 이 프로젝트에서는 DCGAN(Deep Convolutional Generative Adversarial Network)을 사용하여 CryptoPunks 데이터셋에서 훈련하여 새로운 나만의 CryptoPunk NFT 아트를 생성한다.
 
-### 웹서비스 데모 영상
+### 웹서비스 데모 영상 | 🌐[Web Service Demo Link](https://ika9810.github.io/CryptoPunks-with-DCGAN/)
+
 플레이 모양의 버튼을 클릭하면 DCGAN을 통해서 학습시킨 Cryptopunks Generator 모델이 담긴 서버를 호출하여 랜덤하게 이미지를 생성하고 리턴한다.
+
 리턴받은 이미지를 웹에 표시한다. NFT의 특성을 살려 갤러리 형태로 차곡차곡 쌓이도록 설계했다. 좋아요와 깃허브 연결 기능도 구현 완료이다.
 
 ![DEMO](https://raw.githubusercontent.com/ika9810/CryptoPunks-with-DCGAN/main/img/demo.gif)
