@@ -32,7 +32,7 @@ new Vue({
   methods: {
     getData() {
       axios
-        .get("https://web-production-c1ab.up.railway.app/")
+        .get("https://web-production-dbb2.up.railway.app/")
         .then((res) => {
           console.log(res.staus);
           console.log(res.data);
